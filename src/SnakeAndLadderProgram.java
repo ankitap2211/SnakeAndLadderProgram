@@ -1,7 +1,6 @@
 public class SnakeAndLadderProgram {
     public static final int position = 0;
     public static final int option;
-
     public static void main(String[] args) {
         int startposition = 0;
         int NO_PLAY = 0;
@@ -44,6 +43,28 @@ public class SnakeAndLadderProgram {
                     }
                     System.out.println("Position of the player after the snake is " + position);
                     break;
+                default:
+                    System.out.println("No play");
+            }
+        }
+        while (position < 100) {
+            int dieNumber = (int) (Math.floor(Math.random() * 10) % 6 + 1);
+            System.out.println("Dice number is " + dieNumber);
+
+            int option = (int) (Math.floor(Math.random() * 10) % 3);
+            System.out.println("Player option is " + option);
+
+            switch (option) {
+                case 1:
+                    position = dieNumber + position;
+                    System.out.println("Position of the player after ladder is " + position);
+                    break;
+                case 2:
+                    if (dieNumber + position <= 100) {
+                        position = position + dieNumber;
+                        System.out.println("Position of the player is " + position);
+                        break;
+                    }
                 default:
                     System.out.println("No play");
             }
